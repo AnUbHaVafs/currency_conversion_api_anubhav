@@ -1,0 +1,11 @@
+Response:
+{
+    conversions:[{
+        amoubt:100,
+        from:"A",
+        exchangeValues:[{
+            to:"B",
+            value:123
+        }]
+    }]
+}

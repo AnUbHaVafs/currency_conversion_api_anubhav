@@ -1,0 +1,12 @@
+Body: 
+{
+    toConvert:[{
+        amount:100,
+        from:"USD",
+        to:["EUR","INR"]
+    },{
+        amount:200,
+        from:"SGD",
+        to:["AUD","INR"]        
+    }]
+}
