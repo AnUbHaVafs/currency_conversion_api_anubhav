@@ -1,3 +1,4 @@
+# importing all required libraries for handling requests and json data
 import requests
 from flask import Flask, request, jsonify
 from flask_restful import Resource, Api
@@ -5,11 +6,14 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
+
+# currency conversion api function
 class CurrencyConverter(Resource):
     def post(self):
         try:
             request_data = request.get_json()
 
+            # validation for all data present is not for the conversion needed
             if not request_data or 'toConvert' not in request_data:
                 return {'error': 'Invalid JSON data or missing "toConvert" key'}, 400
 
@@ -17,9 +21,11 @@ class CurrencyConverter(Resource):
 
             if not isinstance(to_convert, list) or not to_convert:
                 return {'error': 'Invalid "toConvert" data or empty list'}, 400
-
+            
+            # to store all the conversions values
             conversions = []
-
+            
+            # iterating over all the target currencies and making th apis calls for exchange values return
             for item in to_convert:
                 amount = item.get('amount')
                 from_currency = item.get('from')
